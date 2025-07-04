@@ -15,11 +15,11 @@ These datasets were trimmed and structured to focus only on the first year of th
 
 ## Files in This Repository
 
-| File              | Description |
-|-------------------|-------------|
-| `insights.sql`    | Main analytical queries and exploratory analysis around death rates, cases, and population impact. |
-| `views.sql`       | Reusable views that summarize key metrics like death percentages and vaccination rates across countries. |
-| `procedures.sql`  | Stored procedures to dynamically extract summaries and perform comparisons across countries. |
+| File                                  | Description |
+|---------------------------------------|-------------|
+| `CovidDataset-Understanding&ImportantInsights.sql` | Main analytical queries and exploratory analysis around death rates, cases, and population impact. |
+| `Views.sql`                           | Reusable views that summarize key metrics like death percentages and vaccination rates across countries. |
+| `Procedures.sql`                      | Stored procedures to dynamically extract summaries and perform comparisons across countries. |
 
 ## Key Insights
 
@@ -30,18 +30,37 @@ These datasets were trimmed and structured to focus only on the first year of th
 
 ## Technologies Used
 
-- SQL (T-SQL / MS SQL Server syntax)
+- **Microsoft SQL Server Management Studio (SSMS)**
+- SQL (T-SQL)
 - Microsoft Excel (for preprocessing and review)
+
+## About the Datasets
+
+| Table         | Description                                                                          |
+|---------------|--------------------------------------------------------------------------------------|
+| `Covid-19 deaths`      | Includes country-level daily COVID-19 data such as total cases, deaths, and population. |
+| `Vaccination` | Contains daily vaccination records by country including totals and people vaccinated. |
+
+**Note:** Certain numeric fields (like `total_cases`, `new_deaths`) were originally stored as `nvarchar` and are converted to appropriate numeric types (`FLOAT`, `BIGINT`) using `TRY_CAST`.
 
 ## How to Use
 
-1. Import the `deaths` and `vaccinations` datasets into your SQL environment.
+1. Import the `deaths` and `vaccination` datasets into your SQL Server environment.
 2. Run the scripts in this order:
    - `views.sql` (to create reusable views)
    - `procedures.sql` (to define stored procedures)
-   - `insights.sql` (to explore the data)
+   - `CovidDataset-Understanding&ImportantInsights.sql` (to explore the data)
 3. Use stored procedures for country-level comparisons and summaries.
+
+## Future Improvements
+
+- Integrate more recent pandemic data to extend the trend beyond the first year  
+- Add visualizations using tools like Power BI or Tableau  
+- Include automated tests or validation procedures for critical calculations  
+- Create a dashboard UI to consume views and procedures interactively  
+- Optimize performance using indexes or filtered queries for large-scale datasets  
 
 ## Author
 
-This project was created as part of a personal portfolio focused on SQL-based data analysis.
+This project was developed as part of a personal learning initiative to apply and showcase SQL skills through real-world public health data.  
+It demonstrates a practical understanding of database querying, trend analysis, and procedural logic in Microsoft SQL Server Management Studio.
